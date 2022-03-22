@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SZTGUIWorkhop5", "SZTGUIWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endpoint", "..\Endpoint\Endpoint.csproj", "{C438BDFD-7252-4996-B34D-1A0CFA094D61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "..\Models\Models.csproj", "{76FCEFF8-8FF1-4AAC-82DF-E43072538484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C438BDFD-7252-4996-B34D-1A0CFA094D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C438BDFD-7252-4996-B34D-1A0CFA094D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C438BDFD-7252-4996-B34D-1A0CFA094D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76FCEFF8-8FF1-4AAC-82DF-E43072538484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76FCEFF8-8FF1-4AAC-82DF-E43072538484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76FCEFF8-8FF1-4AAC-82DF-E43072538484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76FCEFF8-8FF1-4AAC-82DF-E43072538484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
