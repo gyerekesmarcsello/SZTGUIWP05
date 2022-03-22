@@ -18,43 +18,25 @@ namespace SZTGUIWorkhop5
 
         public RestCollection<ChatMessage> Messages { get; set; }
 
-        private string name;
+        private string tname;
 
-        public string Name
+        public string TName
         {
-            get { return name; }
-            set { SetProperty(ref name, value); }
+            get { return tname; }
+            set { SetProperty(ref tname, value); }
         }
 
-        private string message;
+        private string tmessage;
 
-        public string Message
+        public string TMessage
         {
-            get { return message; }
-            set { SetProperty(ref message,value); }
+            get { return tmessage; }
+            set { SetProperty(ref tmessage,value); }
         }
 
 
         public ICommand SendMessageCommand { get; set; }
 
-        public ChatMessage CurrentMessage
-        {
-            get { return CurrentMessage; }
-            set
-            {
-                if (value != null)
-                {
-                    CurrentMessage = new ChatMessage()
-                    {
-                        Name = value.Name,
-                        DirectMessage = value.DirectMessage,
-                        localDate=value.localDate
-                        
-                    };
-                    OnPropertyChanged();
-                }
-            }
-        }
 
         public static bool IsInDesignMode
         {
@@ -71,16 +53,17 @@ namespace SZTGUIWorkhop5
 
             if (!IsInDesignMode)
             {
-                Messages = new RestCollection<ChatMessage>("http://localhost:19526/", "chat", "hub");
+                Messages = new RestCollection<ChatMessage>("http://localhost:19526/", "chatmessage", "hub");
                 SendMessageCommand = new RelayCommand(() =>
                 {
                     Messages.Add(new ChatMessage()
                     {
-                        Name = CurrentMessage.Name,
-                        DirectMessage = CurrentMessage.DirectMessage,
-                        localDate = CurrentMessage.localDate
-                    });
+                        Name = TName,
+                        DirectMessage = TMessage,
+                        localDate = DateTime.Now
+                    }) ;
                 });
+                
             }
         }
     }
