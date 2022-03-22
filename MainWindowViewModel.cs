@@ -14,29 +14,42 @@ namespace SZTGUIWorkhop5
 {
     class MainWindowViewModel : ObservableRecipient
     {
-        private string errorMessage;
+       
 
-        public string ErrorMessage
+        public RestCollection<ChatMessage> Messages { get; set; }
+
+        private string name;
+
+        public string Name
         {
-            get { return errorMessage; }
-            set { SetProperty(ref errorMessage, value); }
+            get { return name; }
+            set { SetProperty(ref name, value); }
         }
 
-        public RestCollection<Message> Messages { get; set; }
+        private string message;
+
+        public string Message
+        {
+            get { return message; }
+            set { SetProperty(ref message,value); }
+        }
+
 
         public ICommand SendMessageCommand { get; set; }
 
-        public Message CurrentMessage
+        public ChatMessage CurrentMessage
         {
             get { return CurrentMessage; }
             set
             {
                 if (value != null)
                 {
-                    CurrentMessage = new Message()
+                    CurrentMessage = new ChatMessage()
                     {
                         Name = value.Name,
-                        DirectMessage = value.DirectMessage
+                        DirectMessage = value.DirectMessage,
+                        localDate=value.localDate
+                        
                     };
                     OnPropertyChanged();
                 }
@@ -54,14 +67,18 @@ namespace SZTGUIWorkhop5
 
         public MainWindowViewModel()
         {
+
+
             if (!IsInDesignMode)
             {
+                Messages = new RestCollection<ChatMessage>("http://localhost:19526/", "chat", "hub");
                 SendMessageCommand = new RelayCommand(() =>
                 {
-                    Messages.Add(new Message()
+                    Messages.Add(new ChatMessage()
                     {
                         Name = CurrentMessage.Name,
-                        DirectMessage = CurrentMessage.DirectMessage
+                        DirectMessage = CurrentMessage.DirectMessage,
+                        localDate = CurrentMessage.localDate
                     });
                 });
             }

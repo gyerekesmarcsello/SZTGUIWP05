@@ -16,7 +16,7 @@ namespace SZTGUIWorkhop5
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "swagger")
+        public RestService(string baseurl, string pingableEndpoint = "chat")
         {
             bool isOk = false;
             do
