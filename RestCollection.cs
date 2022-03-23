@@ -292,7 +292,7 @@ namespace SZTGUIWorkhop5
             if (hub != null)
             {
                 this.notify = new NotifyService(baseurl + hub);
-                this.notify.AddHandler<T>(type.Name + "Created", (T item) =>
+                this.notify.AddHandler<T>(type.Name + "Added", (T item) =>
                 {
                     items.Add(item);
                     CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));

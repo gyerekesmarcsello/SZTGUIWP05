@@ -20,17 +20,18 @@
                 <DataTemplate>
                     <WrapPanel>
                         <Label Content="{Binding Name}" />
-                        <Label Content="{Binding localDate}" />
                         <Label Content="{Binding DirectMessage}" />
+                        <Label Content="{Binding localDate}" HorizontalAlignment="Right"/>
+                        
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
             <Label Content="Name" Background="LightBlue" Padding="10" />
-            <TextBox Padding="10" Margin="0,0,0,30" Text="{Binding Name}" />
+            <TextBox Padding="10" Margin="0,0,0,30" Text="{Binding TName}" />
             <Label Content="Message" Background="LightBlue" Padding="10" />
-            <TextBox Padding="25" Margin="0,0,0,0" Text="{Binding Message}" />
+            <TextBox Padding="25" Margin="0,0,0,0" Text="{Binding TMessage}" />
             <Button Content="Send" Command="{Binding SendMessageCommand}" Margin="10" Padding="10" />
             
         </StackPanel>

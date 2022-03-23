@@ -1,5 +1,6 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using SZTGUIWorkhop5.Models;
 
 namespace SZTGUIWorkhop5
 {
@@ -53,7 +53,7 @@ namespace SZTGUIWorkhop5
 
             if (!IsInDesignMode)
             {
-                Messages = new RestCollection<ChatMessage>("http://localhost:19526/", "chatmessage", "hub");
+                Messages = new RestCollection<ChatMessage>("http://localhost:28347/", "chatmessage", "hub");
                 SendMessageCommand = new RelayCommand(() =>
                 {
                     Messages.Add(new ChatMessage()
